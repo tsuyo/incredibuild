@@ -1,5 +1,6 @@
 # Incredibuild (IB) Windows 質問集
 Updated for Version 10
+- %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 
 # 開発者向け
 ## 詳細なログ付きビルドモニターの取得方法
@@ -24,7 +25,6 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 
 # 管理者向け
 ## インストール・アップグレード不具合時の送付ファイル
-%IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 - %IB_DIR%\Logs
 - %IB_DIR%\Manager\logs
 - %TEMP%\IB_Setup_Log*
@@ -39,3 +39,17 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 1. Coordinator を停止する（Services > Incredibuild CoordinatorService を右クリック > Stop）
 2. インストールフォルダ（デフォルト "C:\Program Files (x86)\Incredibuild"）直下に CoordService.sbd をリストア
 3. Coordinator を開始する（Services > Incredibuild CoordinatorService を右クリック > Start）
+
+## Coordinator の再起動時間の確認方法
+1. %IB_DIR%\Logs\CoordinatorService.log の下記ライン
+```
+grep -a "============= Incredibuild Version" CoordinatorService*.log
+[2024-09-24 13:48:51.026] [info] [coordinator_service] [3252] [main.cpp:72] ============= Incredibuild Version 10.17.0 (Build 13843) =============
+[....]
+```
+2. %IB_DIR%\Logs\CoordinatorCore.log の下記ライン
+```
+$ grep -a "Coordinator ID" CoordinatorCore.log
+24-09-2024 13:48:52.317 Coordinator ID: XXXXXXXXXX
+[....]
+```
