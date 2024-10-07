@@ -6,6 +6,13 @@
 2. Incredibuild を使ってビルド
 3. 右下のタスクトレイにある Incredibuild のアイコンを右クリック > Build History > 該当の Build をダブルクリック > File > Save Monitor File As... → 名前をつけた *.ib_mon を送付
 
+## 個々のタスクの詳細なログ取得方法
+ビルドモニター自体にはタスクごとの詳細なログは保存されないため、下記が必要なケースがあります
+
+1. ビルドモニターを開く
+2. タスクを一つ選択し、右クリック > Save Detailed Log...
+3. _CPUX.{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}.ib_log を保存、送付
+
 ## インストール・アップグレード不具合時の送付ファイル
 %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 - %IB_DIR%\Logs
