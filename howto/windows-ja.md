@@ -1,4 +1,5 @@
-# Incredibuild (IB) 10 質問集
+# Incredibuild (IB) Windows 質問集
+Updated for Version 10
 
 # 開発者向け
 ## 詳細なログ付きビルドモニターの取得方法
