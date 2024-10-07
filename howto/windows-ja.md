@@ -1,5 +1,6 @@
 # Incredibuild (IB) 10 質問集
 
+# 開発者向け
 ## 詳細なログ付きビルドモニターの取得方法
 
 1. 右下のタスクトレイにある Incredibuild のアイコンを右クリック > Agent Settings > Agent > General > Logging > Logging level: Detailed に設定
@@ -13,6 +14,14 @@
 2. タスクを一つ選択し、右クリック > Save Detailed Log...
 3. _CPUX.{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}.ib_log を保存、送付
 
+## Predictive Execution (PE) のオン・オフの仕方
+### オン
+Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual Studio 2010 and higher) > "Enhance throughput using out-of-order tasks spawning" をチェック
+
+### オフ
+Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual Studio 2010 and higher) > "Enhance throughput using out-of-order tasks spawning" をアンチェック
+
+# 管理者向け
 ## インストール・アップグレード不具合時の送付ファイル
 %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 - %IB_DIR%\Logs
