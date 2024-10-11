@@ -53,3 +53,8 @@ $ grep -a "Coordinator ID" CoordinatorCore.log
 24-09-2024 13:48:52.317 Coordinator ID: XXXXXXXXXX
 [....]
 ```
+
+## VPN などで Agent の内部 IP と外部向け IP (Routing IP) が変わってしまう場合の対応
+Coordinator のレジストリ `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Xoreax\Incredibuild\Coordinator` 内にエントリ `Key: UseRoutingIP, Value: 0` を設定する
+- Value: 1 (default) → Agent の IP として Routing IP を使う
+- Value: 0 → Agent の IP として内部 IP を使う
