@@ -2,3 +2,5 @@
 ## 質問集
 - [IB Windows](questions/windows-ja.md)
 - [IB Linux](questions/linux-ja.md)
+- [IB Cloud](questions/cloud-ja.md)
+- 
