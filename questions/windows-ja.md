@@ -23,11 +23,16 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 ### オフ
 Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual Studio 2010 and higher) > "Enhance throughput using out-of-order tasks spawning" をアンチェック
 
-## ビルドが分散されない時のトラブルシューティング
+## ビルドが Helper でのみ失敗する時（ビルドモニター上「白いバー」になる時）
 - アンチウイルスソフトのスキャン対象フォルダから IB を外す（[System Requirements > Antivirus](https://docs.incredibuild.com/win/latest/windows/system_requirements.html)）
-- Agent Settings > Initiator > Advanced > Recovery: Distributed tasks should only fail on local machine をアンチェック
+- Agent Settings > Initiator > Advanced > Recovery: Distributed tasks should only fail on local machine をアンチェック、ビルドし原因を確認
 
 # 管理者向け
+## ビルドが一部の Helper でしか実行されない時
+Coordinator > Settings > Agents > Helper Participation Threshold の設定（特に "Available CPU" を見直す）
+- Available CPU は「Helper の CPU リソースが 30% 以上空いていない時、この Helper を利用しない」という意味
+- Available CPU のデフォルトは 30%、増やすと Helper が割り当てられる可能性が**低く**なっていく
+
 ## インストール・アップグレード不具合時の送付ファイル
 - %IB_DIR%\Logs
 - %IB_DIR%\Manager\logs
