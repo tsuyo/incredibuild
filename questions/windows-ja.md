@@ -16,6 +16,18 @@ Updated for Version 10
 2. タスクを一つ選択し、右クリック > Save Detailed Log...
 3. _CPUX.{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}.ib_log を保存、送付
 
+## PML ファイルの取得方法
+ビルドモニターやログなどで解析が難しい場合、さらに Process Monitor ファイルが必要なケースがあります
+
+1. マイクロソフトの専用ツール Process Monitor を[ダウンロード](https://download.sysinternals.com/files/ProcessMonitor.zip)する
+2. ProcessMonitor.zip ファイルを解凍する
+3. タスクバーに表示されているすべてのアプリケーションを閉じ（可能であれば）、以下のステップで追加のアクションを取らないようにする
+4. Procmon.exe を実行する
+5. Edit > Clear Display
+6. File > "Capture Events" がチェックされていることを確認する
+7. 問題を再現する
+8. File > Save in Process Monitor を選択し、ネイティブ PML 形式でログファイルを保存する
+
 ## Predictive Execution (PE) のオン・オフの仕方
 ### オン
 Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual Studio 2010 and higher) > "Enhance throughput using out-of-order tasks spawning" をチェック
