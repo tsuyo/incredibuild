@@ -79,3 +79,18 @@ $ grep -a "Coordinator ID" CoordinatorCore.log
 Coordinator のレジストリ `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Xoreax\Incredibuild\Coordinator` 内にエントリ `Key: UseRoutingIP, Value: 0` を設定する
 - Value: 1 (default) → Agent の IP として Routing IP を使う
 - Value: 0 → Agent の IP として内部 IP を使う
+
+## Incredibuild 関連のイベントログを抑止する方法（IB10.20 以降）
+1. 下記内容の `coordinator_service_config.json` ファイルを作成
+```
+{
+  "logger": {
+    "sink": {
+      "logToEventViewer": false
+    }
+  }
+}
+```
+2. `C:\ProgramData\Incredibuild\Coordinator` フォルダを作成（存在しない場合）
+3. `1.` のファイルを `2.` のフォルダ以下にコピー (`C:\ProgramData\Incredibuild\Coordinator\coordinator_service_config.json`)
+4. Coordinator を再起動
