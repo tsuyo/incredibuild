@@ -94,3 +94,8 @@ Coordinator のレジストリ `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node
 2. `C:\ProgramData\Incredibuild\Coordinator` フォルダを作成（存在しない場合）
 3. `1.` のファイルを `2.` のフォルダ以下にコピー (`C:\ProgramData\Incredibuild\Coordinator\coordinator_service_config.json`)
 4. Coordinator を再起動
+
+## Incredibuild 各ファイルのバージョンの調べ方
+ファイルを右クリック（例: BuildAddInVC17.dll） > Properties > Details > Product version
+
+![Screenshot 2025-01-06 at 20 02 45](https://github.com/user-attachments/assets/e8db1add-31a0-45d5-8f2f-9cd7f5cbf0f0)
