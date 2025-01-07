@@ -1,5 +1,5 @@
-# Incredibuild 日本語技術情報
-## 質問集
-- [IB Windows](questions/windows-ja.md)
-- [IB Linux](questions/linux-ja.md)
-- [IB Cloud](questions/cloud-ja.md)
+# Incredibuild 日本語サイト
+## サポート情報
+- [Windows](support/windows-ja.md)
+- [Linux](support/linux-ja.md)
+- [Cloud](support/cloud-ja.md)
