@@ -1,4 +1,4 @@
-# Incredibuild (IB) Linux 質問集
+# Incredibuild (IB) Linux サポート情報
 Updated for Version 4
 
 # 開発者向け

@@ -1,4 +1,4 @@
-# Incredibuild (IB) Windows 質問集
+# Incredibuild (IB) Windows サポート情報
 Updated for Version 10
 - %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 
@@ -99,3 +99,13 @@ Coordinator のレジストリ `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node
 ファイルを右クリック（例: BuildAddInVC17.dll） > Properties > Details > Product version
 
 ![Screenshot 2025-01-06 at 20 02 45](https://github.com/user-attachments/assets/e8db1add-31a0-45d5-8f2f-9cd7f5cbf0f0)
+
+## Floating Initiator ライセンスの割り当て状況の確認
+[floating-initiator-checker.py](tools/floating-initiator-checker.py) を利用して、下記を実行して下さい。"Available Floating Initiators" で表示される数がその時点で利用可能な Floating Initiator の数です
+```
+$ python3 floating-initiator-checker.py %IB_DIR%\LicenseService.log
+[2024-12-09 08:16:17.551] Available Floating Initiators: 36
+[2024-12-09 08:16:17.559] Available Floating Initiators: 35
+[2024-12-09 08:16:17.580] Available Floating Initiators: 35
+[....]
+```

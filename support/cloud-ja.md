@@ -1,4 +1,4 @@
-# Incredibuild Cloud (IBC) 質問集
+# Incredibuild Cloud (IBC) サポート情報
 
 # 管理者向け
 ## クラウドベンダーのコア数制限について
