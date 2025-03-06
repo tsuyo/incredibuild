@@ -39,6 +39,9 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 - アンチウイルスソフトのスキャン対象フォルダから IB を外す（[System Requirements > Antivirus](https://docs.incredibuild.com/win/latest/windows/system_requirements.html)）
 - Agent Settings > Initiator > Advanced > Recovery: Distributed tasks should only fail on local machine をアンチェック、ビルドし原因を確認
 
+## Visual Studio の出力ウィンドウで日本語が文字化けする
+- レジストリ `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Xoreax\IncrediBuild\Builder` 下に `ForceEnglishMSBuildOutput = 0` のエントリーを追加（もしくは値が 1 なら 0 に修正）して再度ビルドを確認
+
 # 管理者向け
 ## ビルドが一部の Helper でしか実行されない時
 Coordinator > Settings > Agents > Helper Participation Threshold の設定（特に "Available CPU" を見直す）
