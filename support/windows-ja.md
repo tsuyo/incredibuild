@@ -43,6 +43,28 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 - レジストリ `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Xoreax\IncrediBuild\Builder` 下に `ForceEnglishMSBuildOutput = 0` のエントリーを追加（もしくは値が 1 なら 0 に修正）して再度ビルドを確認
 
 # 管理者向け
+## SSL 証明書の更新手順（>= IB10.24）
+コマンドプロンプト
+```
+C:\Users\Administrator>cd "C:\Program Files (x86)\Incredibuild\Manager"
+
+C:\Program Files (x86)\Incredibuild\Manager>Manager.exe updateCertificate -c "C:\Users\Administrator\certs\tsuyo-aws-win2022-1.crt" -k "C:\Users\Administrator\certs\tsuyo-aws-win2022-1.key"
+
+Certificate and Key validation passed successfully.
+Stopping Incredibuild Services
+Services Stopped
+Updating Certificate
+Certificate copied successfully
+Starting Incredibuild Services
+Services Started
+Certificate updated successfully
+```
+WSL
+```
+$ cd "/mnt/c/Program Files (x86)/Incredibuild/Manager"
+$ ./Manager.exe updateCertificate -c "$(wslpath -w /mnt/c/Users/Administrator/certs/tsuyo-aws-win2022-1.crt)" -k "$(wslpath -w /mnt/c/Users/Administrator/certs/tsuyo-aws-win2022-1.key)"
+```
+
 ## ビルドが一部の Helper でしか実行されない時
 Coordinator > Settings > Agents > Helper Participation Threshold の設定（特に "Available CPU" を見直す）
 - Available CPU は「Helper の CPU リソースが 30% 以上空いていない時、この Helper を利用しない」という意味
