@@ -1,5 +1,5 @@
 # Incredibuild (IB) Windows サポート情報
-Updated for Version 10
+- Current Version: 10
 - %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 
 # 開発者向け
@@ -43,6 +43,13 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 - レジストリ `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Xoreax\IncrediBuild\Builder` 下に `ForceEnglishMSBuildOutput = 0` のエントリーを追加（もしくは値が 1 なら 0 に修正）して再度ビルドを確認
 
 # 管理者向け
+## SSL 証明書の使われ方
+- Coordinator SSL Certificate（インストール時の名称）
+  - Coordinator と Browser の通信暗号化
+  - Coordinator と Agent の通信暗号化
+- Agent SSL Certificate（インストール時の名称）
+  - Agent と Agent の通信暗号化
+
 ## SSL 証明書の更新手順（>= IB10.24）
 コマンドプロンプト
 ```
