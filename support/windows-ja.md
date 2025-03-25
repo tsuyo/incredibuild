@@ -2,6 +2,10 @@
 - Current Version: 10
 - %IB_DIR% は Incredibuild インストールディレクトリ（デフォルトは "C:\Program Files (x86)\Incredibuild"）
 
+# 共通
+## 古いバージョンのドキュメントとインストーラーの場所
+https://docs.incredibuild.com/site_landing/download_docs_center.htm
+
 # 開発者向け
 ## 詳細なログ付きビルドモニターの取得方法
 
