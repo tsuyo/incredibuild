@@ -97,6 +97,53 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 2. インストールフォルダ（デフォルト "C:\Program Files (x86)\Incredibuild"）直下に CoordService.sbd をリストア
 3. Coordinator を開始する（Services > Incredibuild CoordinatorService を右クリック > Start）
 
+## Coordinator Crash Dump の取得方法
+
+### CrashDump の作成（準備）
+- C:\\CoordinatorServiceDumpFiles フォルダを作成後、EnableCoordinatorDump.reg を実行
+
+  [EnableCoordinatorDump.reg]
+  ```
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\CoordinatorService.exe]
+  "DumpFolder"="C:\\CoordinatorServiceDumpFiles"
+  "DumpCount"=dword:00000003
+  "DumpType"=dword:00000000
+  "CustomDumpFlags"=dword:00041826
+  ```
+- C:\\LicenseServiceDumpFiles フォルダを作成後、EnableLicenseServerDump.reg を実行
+
+  [EnableLicenseServerDump.reg]
+  ```
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\LicenseService.exe]
+  "DumpFolder"="C:\\LicenseServiceDumpFiles"
+  "DumpCount"=dword:00000003
+  "DumpType"=dword:00000000
+  "CustomDumpFlags"=dword:00041826
+  ```
+
+### ログの収集
+
+**Coordinator**
+- C:\Program Files (x86)\Incredibuild\Logs
+- C:\Program Files (x86)\Incredibuild\Manager\logs
+
+**Backup Coordinator（あれば）**
+- C:\Program Files (x86)\Incredibuild\Logs
+- Manager ログはない
+
+### Coordinator Persistent Data の収集
+**Coordinator**
+- C:\Program Files (x86)\Incredibuild\CoordService.sbd
+- C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+
+**Backup Coordinator（あれば）**
+- C:\Program Files (x86)\Incredibuild\CoordService.sbd.backup
+- C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+
 ## Coordinator の再起動時間の確認方法
 1. %IB_DIR%\Logs\CoordinatorService.log の下記ライン
 ```
