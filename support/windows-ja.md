@@ -97,9 +97,11 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 2. インストールフォルダ（デフォルト "C:\Program Files (x86)\Incredibuild"）直下に CoordService.sbd をリストア
 3. Coordinator を開始する（Services > Incredibuild CoordinatorService を右クリック > Start）
 
-## Coordinator Crash Dump の取得方法
+## Coordinator Service 不具合時の必要データ取得方法
 
-### CrashDump の作成（準備）
+下記手順を実行し、2, 3, 4 のファイルを送付ください
+
+1. CrashDump の取得準備
 - C:\\CoordinatorServiceDumpFiles フォルダを作成後、EnableCoordinatorDump.reg を実行
 
   [EnableCoordinatorDump.reg]
@@ -125,24 +127,28 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
   "CustomDumpFlags"=dword:00041826
   ```
 
-### ログの収集
+2. CrashDump の収集
+- 1 の設定後、実際に Coordinator に問題があった際、"DumpFolder" で指定したフォルダにダンプファイルが生成される
 
-**Coordinator**
-- C:\Program Files (x86)\Incredibuild\Logs
-- C:\Program Files (x86)\Incredibuild\Manager\logs
+3. ログの収集
 
-**Backup Coordinator（あれば）**
-- C:\Program Files (x86)\Incredibuild\Logs
-- Manager ログはない
+- Coordinator
+  - C:\Program Files (x86)\Incredibuild\Logs
+  - C:\Program Files (x86)\Incredibuild\Manager\logs
 
-### Coordinator Persistent Data の収集
-**Coordinator**
-- C:\Program Files (x86)\Incredibuild\CoordService.sbd
-- C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+- Backup Coordinator（あれば）
+  - C:\Program Files (x86)\Incredibuild\Logs
+  - （Manager ログはない）
 
-**Backup Coordinator（あれば）**
-- C:\Program Files (x86)\Incredibuild\CoordService.sbd.backup
-- C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+4. Coordinator Persistent Data の収集
+- Coordinator
+  - C:\Program Files (x86)\Incredibuild\CoordService.sbd
+  - C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+  - `xgCoordConsole.exe /ExportStatus=output.xml` の出力（output.xml）
+
+- Backup Coordinator（あれば）
+  - C:\Program Files (x86)\Incredibuild\CoordService.sbd.backup
+  - C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
 
 ## Coordinator の再起動時間の確認方法
 1. %IB_DIR%\Logs\CoordinatorService.log の下記ライン
