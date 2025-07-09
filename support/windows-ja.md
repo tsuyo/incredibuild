@@ -149,6 +149,36 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 - Backup Coordinator（あれば）
   - C:\Program Files (x86)\Incredibuild\CoordService.sbd.backup
   - C:\Program Files (x86)\Incredibuild\resources\coordinator_service_config.json
+ 
+## BuildCache Service 不具合時の必要データ取得方法
+
+下記手順を実行し、2 のファイルを送付ください
+
+1. CrashDump の取得準備
+- C:\\BuildCacheServiceDumpFiles フォルダを作成後、下記 BuildCacheDump.reg を実行（`reg import BuildCacheDump.reg /reg:64`）
+
+  [BuildCacheDump.reg]
+  ```
+  Windows Registry Editor Version 5.00
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\BuildCacheService.exe]
+  "DumpType"=dword:00000002
+  "DumpCount"=dword:00000010
+  "DumpFolder"="C:\\BuildCacheServiceDumpFiles"
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps\BuildSystem.exe]
+  "DumpType"=dword:00000002
+  "DumpCount"=dword:00000010
+  "DumpFolder"="C:\\BuildCacheServiceDumpFiles"
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\Windows Error Reporting\LocalDumps\BuildSystem.exe]
+  "DumpType"=dword:00000002
+  "DumpCount"=dword:00000010
+  "DumpFolder"="C:\\BuildCacheServiceDumpFiles"
+  ```
+
+2. CrashDump の収集
+- 1 の設定後、実際に BuildCache に問題があった際、"DumpFolder" で指定したフォルダにダンプファイルが生成される
 
 ## Coordinator の再起動時間の確認方法
 1. %IB_DIR%\Logs\CoordinatorService.log の下記ライン
