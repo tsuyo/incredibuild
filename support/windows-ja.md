@@ -152,7 +152,7 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
  
 ## BuildCache Service 不具合時の必要データ取得方法
 
-下記手順を実行し、2 のファイルを送付ください
+下記手順を実行し、2, 4 のファイルを送付ください
 
 1. CrashDump の取得準備
 - C:\\BuildCacheServiceDumpFiles フォルダを作成後、下記 BuildCacheDump.reg を実行（`reg import BuildCacheDump.reg /reg:64`）
@@ -179,6 +179,27 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 
 2. CrashDump の収集
 - 1 の設定後、実際に BuildCache に問題があった際、"DumpFolder" で指定したフォルダにダンプファイルが生成される
+
+3. ログの取得準備
+C:\ProgramData\Incredibuild\BuildCache\buildcache_service_config.json に下記を追加（**一番外側の {} の中に**）
+```
+{
+...
+  "logger": {
+    "loggersLevel": [
+      [ "buildcache", 0 ],
+      [ "buildcache_session", 0 ],
+      [ "redis_client", 3 ],
+      [ "common", 0 ],
+      [ "io_tools", 0 ]
+    ]
+  }
+}
+```
+
+4. ログの収集
+
+- C:\Program Files (x86)\Incredibuild\Logs
 
 ## Coordinator の再起動時間の確認方法
 1. %IB_DIR%\Logs\CoordinatorService.log の下記ライン
