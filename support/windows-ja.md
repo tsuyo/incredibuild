@@ -181,7 +181,7 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 - 1 の設定後、実際に BuildCache に問題があった際、"DumpFolder" で指定したフォルダにダンプファイルが生成される
 
 3. ログの取得準備
-C:\ProgramData\Incredibuild\BuildCache\buildcache_service_config.json に下記を追加（**一番外側の {} の中に**）
+C:\ProgramData\Incredibuild\BuildCache\buildcache_service_config.json に下記を追加（**一番外側の {} の中に**）。BuildCache Service が起動している場合は再起動が必要
 ```
 {
 ...
