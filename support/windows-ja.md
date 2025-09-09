@@ -47,6 +47,11 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 - レジストリ `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Xoreax\IncrediBuild\Builder` 下に `ForceEnglishMSBuildOutput = 0` のエントリーを追加（もしくは値が 1 なら 0 に修正）して再度ビルドを確認
 
 # 管理者向け
+## インストール・アップグレード不具合時の送付ファイル
+- %IB_DIR%\Logs
+- %IB_DIR%\Manager\logs
+- %TEMP%\IB_Setup_Log*
+
 ## SSL 証明書の使われ方
 - Coordinator SSL Certificate（インストール時の名称）
   - Coordinator と Browser の通信暗号化
@@ -81,12 +86,19 @@ Coordinator > Settings > Agents > Helper Participation Threshold の設定（特
 - Available CPU は「Helper の CPU リソースが 30% 以上空いていない時、この Helper を利用しない」という意味
 - Available CPU のデフォルトは 30%、増やすと Helper が割り当てられる可能性が**低く**なっていく
 
-## インストール・アップグレード不具合時の送付ファイル
-- %IB_DIR%\Logs
-- %IB_DIR%\Manager\logs
-- %TEMP%\IB_Setup_Log*
+## バックアップとリストア（IB10.27 以降）
+### "Notify Agents of new Coordinator" の意味
+通常の（バックアップ＆リストアの機能を使わない）Coordinator のアップグレードでは、それに接続された Agent は自動的に Coordinator と同じバージョンにアップグレードされます。しかしバックアップ＆リストアの場合、デフォルトではこの Agent の自動アップデートは行われません。
 
-## ライセンスとビルドグループ設定のバックアップとリストア
+この "Notify Agents of new Coordinator" にチェックをつけると、通常のアップグレードと同様 Agent の自動アップグレードが行われます。その際 "Coordinator network name" には Agent から見た新しい Coordinator の IP アドレス or ホスト名を指定してください
+
+なお、このインストールのタイミングでオフラインであった Agent に関しては自動アップグレードは行われません。この場合は以下のどちらかを実行し、新しい Coordinator を認識させてください
+1. Agent で手動で Coordinator の IP アドレス or ホスト名を指定する
+2. （新しい）Coordinator で オフラインの Agent がオンラインになったタイミングで `xgCoordConsole.exe /RESTOREPRIMARY=<Name>` を実行する
+
+<img width="753" height="573" alt="Install Incredibuild Setup Options - Restore from backup" src="https://github.com/user-attachments/assets/ee927b50-c1f7-4572-b8d5-3a0e91221034" />
+
+## ライセンスとビルドグループ設定のバックアップとリストア（IB10.27 以前）
 ### バックアップ
 1. Coordinator を停止する（Services > Incredibuild CoordinatorService を右クリック > Stop）
 2. インストールフォルダ（デフォルト "C:\Program Files (x86)\Incredibuild"）直下の CoordService.sbd をバックアップ（このファイルにライセンスとビルドグループの情報が保存されている）
