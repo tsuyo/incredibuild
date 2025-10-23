@@ -46,6 +46,12 @@ Agent Settings > Visual Studio Builds > Advanced > Predicrtive execution (Visual
 ## Visual Studio の出力ウィンドウで日本語が文字化けする
 - レジストリ `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Xoreax\IncrediBuild\Builder` 下に `ForceEnglishMSBuildOutput = 0` のエントリーを追加（もしくは値が 1 なら 0 に修正）して再度ビルドを確認
 
+## 実際に Initiator に割り当てられているコアの確認方法
+```
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Xoreax\Incredibuild\Builder   | find "ForceCPUCount_WhenInitiator" 
+    ForceCPUCount_WhenInitiator    REG_SZ    22
+```
+
 # 管理者向け
 ## インストール・アップグレード不具合時の送付ファイル
 - %IB_DIR%\Logs
