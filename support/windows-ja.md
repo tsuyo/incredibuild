@@ -53,6 +53,10 @@ reg query HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Xoreax\Incredibuild\Builder   
 ```
 
 # 管理者向け
+## Coordinator 不具合時の送付ファイル
+- %IB_DIR%\Logs
+- %IB_DIR%\Manager\logs
+
 ## インストール・アップグレード不具合時の送付ファイル
 - %IB_DIR%\Logs
 - %IB_DIR%\Manager\logs
